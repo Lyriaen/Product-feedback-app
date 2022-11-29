@@ -1,7 +1,14 @@
+import {   BrowserRouter as Router } from "react-router-dom";
+import { AuthProvider } from "./components/providers/AuthProvider";
+
 export const App = () => {
     return (
         <div className="App">
-            <p>Hello world!</p>
+            <AuthProvider>
+                <Router>
+
+                </Router>
+            </AuthProvider>
         </div>
     )
 }
