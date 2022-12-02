@@ -1,11 +1,13 @@
-import { NavLink } from 'react-router-dom';
+
 import { SignOutButton } from "../../auth/SignOutButton";
+import { StyledNav , StyledNavLink } from "./header.styled";
+import { MediumHeading } from "../../common/common.styled";
 
 export const AccountMenu = () => {
     return (
-        <nav>
-            <NavLink to={'/profile'}>Profile</NavLink>
+        <StyledNav>
+            <MediumHeading as={StyledNavLink} to={'/profile'}>Profile</MediumHeading>
             <SignOutButton/>
-        </nav>
+        </StyledNav>
     )
 }

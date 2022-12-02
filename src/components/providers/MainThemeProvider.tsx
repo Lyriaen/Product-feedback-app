@@ -5,6 +5,7 @@ const theme = {
     colors: {
         inputBg: '#F7F8FD',
         primaryBg: '#FFFFFF',
+        buttonText: '#F2F4FE',
         tagBg: '#F2F4FF',
         header: '#373F68',
         text: '#647196',

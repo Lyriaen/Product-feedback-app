@@ -43,3 +43,32 @@ export const SemiBoldText = styled.p`
     line-height: 1.9rem;
     font-weight: 700;
     `
+
+export const Button = styled.button`
+    min-width: 160px;
+    padding: 11px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 2.2rem;
+    text-align: center;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: ${ props => props.theme.colors.buttonText };
+    transition: background-color 0.3s ease;
+    `
+
+export const VioletButton = styled(Button)`
+    background-color: ${ props => props.theme.colors.primaryBtnAndInProgressStatus };
+    &:hover{
+      background-color: ${ props => props.theme.colors.primaryBtnAndInProgressStatus + '95' };
+    }
+    `
+
+export const BlueButton = styled(Button)`
+    background-color: ${ props => props.theme.colors.replyAndTagText };
+    &:hover{
+      background-color: ${ props => props.theme.colors.replyAndTagText + '95' };
+    }
+    `
