@@ -72,3 +72,9 @@ export const BlueButton = styled(Button)`
       background-color: ${ props => props.theme.colors.replyAndTagText + '95' };
     }
     `
+
+export const BasicContainer = styled.div`
+  background-color: ${props => props.theme.colors.primaryBg};
+  border-radius: 10px;
+  width: 100%;
+`

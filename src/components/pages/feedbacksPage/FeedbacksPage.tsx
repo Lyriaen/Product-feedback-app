@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { ColumnContainer , Container } from "./FeedbacksPage.styled";
 import { AsideNavigation } from "./asideNavigation/AsideNavigation";
 import { FeedbacksHeader } from "./feedbacksHeader/FeedbacksHeader";
+import { FeedbacksContainer } from "./feedbacksList/FeedbacksContainer";
 
 
 export const FeedbacksPage = () => {
@@ -14,6 +15,7 @@ export const FeedbacksPage = () => {
             <AsideNavigation/>
             <ColumnContainer>
                 <FeedbacksHeader/>
+                <FeedbacksContainer/>
             </ColumnContainer>
         </Container>
     )
