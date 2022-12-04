@@ -5,6 +5,7 @@ import { ProtectedRoute } from './ProtectedRoute';
 import { SignIn } from '../auth/SignIn';
 import { SignUp } from '../auth/SignUp';
 import { ProjectsListPage } from '../pages/projectListPage/ProjectsListPage';
+import { FeedbacksPage } from "../pages/feedbacksPage/FeedbacksPage";
 
 export const Routing = () => {
     const { isAuth } = useContext(AuthContext) as AuthContextType;
@@ -17,6 +18,7 @@ export const Routing = () => {
                     <Route path='/signup' element={<SignUp/>}/>
                 </Route>
                 <Route path='/' element={<ProjectsListPage/>}/>
+                <Route path='/:feedbacksID' element={<FeedbacksPage/>}/>
             </Routes>
         </main>
     )
