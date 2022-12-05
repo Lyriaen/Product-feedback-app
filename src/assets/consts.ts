@@ -8,7 +8,7 @@ export const tags: string[] = [
 ]
 
 export const roadmapOptions = {
-    Planned: 'orange',
-    'In-Progress': 'purple',
-    Live: 'blue',
+    Planned: 'plannedStatus',
+    'In-Progress': 'primaryBtnAndInProgressStatus',
+    Live: 'liveStatus',
 }
