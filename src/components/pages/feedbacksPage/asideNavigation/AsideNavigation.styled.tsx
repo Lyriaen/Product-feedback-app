@@ -88,3 +88,8 @@ export const TaskCounter = styled.p`
     font-size: 1.6rem;
     color: ${props => props.theme.colors.text};
     `
+
+export const StyledFrontendMentorLogo = styled(BasicContainer)`
+    background: radial-gradient(128.88% 128.88% at 103.9% -10.39%, #E84D70 0%, #A337F6 53.09%, #28A7ED 100%);
+    padding: 62px 24px 24px;
+    `

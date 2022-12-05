@@ -1,5 +1,11 @@
+import { StyledFrontendMentorLogo } from "../AsideNavigation.styled";
+import { MediumHeading , SmallHeading , SmallText } from "../../../../common/common.styled";
+
 export const FrontendMentorLogo = () => {
     return (
-        <p>FrontendMentorLogo</p>
+        <StyledFrontendMentorLogo>
+            <MediumHeading style={{color: '#FFFFFF'}}>Frontend Mentor</MediumHeading>
+            <SmallText style={{color: '#FFFFFF'}}>Feedback Board</SmallText>
+        </StyledFrontendMentorLogo>
     )
 }
