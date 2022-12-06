@@ -1,7 +1,15 @@
 import { EmptyList } from "./components/EmptyList";
+import { Feedback } from "./components/Feedback";
 
 export const FeedbacksContainer = () => {
     return (
-        <EmptyList/>
+        // <EmptyList/>
+        <>
+            <Feedback/>
+            {/*<Feedback/><Feedback/>*/}
+            {/*<Feedback/>*/}
+        </>
+
+
     )
 }
