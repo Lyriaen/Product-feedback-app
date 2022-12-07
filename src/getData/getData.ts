@@ -1,6 +1,7 @@
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { collection, doc, getDocs, getDoc, query, where } from 'firebase/firestore';
 import { db } from '../api/firebase';
 import { ProjectsList , Project} from '../components/pages/projectListPage/project.class';
+import { FeedbacksList, Feedback } from "../components/pages/feedbacksPage/FeedbackList.class";
 
 interface ProjectOne{
     ID:string;
@@ -16,10 +17,30 @@ export const getProjectsList = (setProjectsList: (prev: ProjectsList) => void) =
             ...doc.data(),
             ID: doc.id
         } )) as ProjectOne[]
-        console.log(projectsListFromServer)
         const newProjectsList = new ProjectsList()
         projectsListFromServer.forEach((project ) =>
             newProjectsList.addNewProject(new Project(project.ID, project.title, project.description, project.feedbackID)) )
         setProjectsList(newProjectsList)
+    })
+}
+
+export const getFeedbacksList = (setFeedbacksList, feedbackID) => {
+    const docRef = doc(db, 'feedbacks', feedbackID);
+    getDoc(docRef).then(querySnapshot => {
+        const feedbacksListFromServer = querySnapshot.data().feedbacks?.map(feedback => ({
+            ...feedback
+        }))
+        const newFeedbacksList = new FeedbacksList()
+        feedbacksListFromServer?.forEach((feedback ) =>
+            newFeedbacksList.addNewFeedback(new Feedback( feedback.title,
+                feedback.description ,
+                feedback.status ,
+                feedback.commentsID ,
+                feedback.commentsCount ,
+                feedback.tag ,
+                feedback.upvotes ,
+                feedbackID,
+        )) )
+        setFeedbacksList(newFeedbacksList)
     })
 }
