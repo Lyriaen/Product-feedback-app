@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const BigHeading = styled.h1`
     font-size: 2.4rem;
@@ -78,3 +79,28 @@ export const BasicContainer = styled.div`
   border-radius: 10px;
   width: 100%;
 `
+
+export const StyledGoBackButton = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  & p{
+    display: inline;
+    position: relative;
+  }
+  &:hover p::after{
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    height: 1px;
+    width: 100%;
+    background-color: currentColor;
+  }
+  & svg{
+    stroke: currentColor;
+    margin-right: 10px;
+  }
+  `
