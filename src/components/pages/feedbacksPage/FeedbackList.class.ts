@@ -30,7 +30,8 @@ export class FeedbacksList {
     get getSuggestionsCount(){
         return this.getStatusCount('suggestion')
     }
-    private getStatusCount(status){
+
+    public getStatusCount(status){
         return this.feedbacksList.reduce((sum, feedback) => {
             return feedback.getStatus === status ? ++sum : sum;
         },0)
