@@ -10,12 +10,12 @@ export const FeedbacksPage = () => {
     return(
         <Container>
             <FeedbacksListProvider>
-                {/*<AsideNavigation/>*/}
-                {/*<ColumnContainer>*/}
-                {/*    <FeedbacksHeader/>*/}
-                {/*    <FeedbacksContainer/>*/}
-                {/*</ColumnContainer>*/}
-                <RoadmapPage/>
+                <AsideNavigation/>
+                <ColumnContainer>
+                    <FeedbacksHeader/>
+                    <FeedbacksContainer/>
+                </ColumnContainer>
+                {/*<RoadmapPage/>*/}
             </FeedbacksListProvider>
         </Container>
     )

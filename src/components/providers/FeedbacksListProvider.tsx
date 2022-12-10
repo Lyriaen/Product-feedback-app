@@ -8,11 +8,17 @@ export const FeedbacksListContext = createContext('')
 export const FeedbacksListProvider = ({children}) => {
     const { feedbacksID } = useParams()
     const [feedbacksList, setFeedbacksList] = useState(new FeedbacksList() )
+    const [selectedTag, setSelectedTag] = useState('All')
     useEffect(()=> {
         getFeedbacksList(setFeedbacksList, feedbacksID)
     }, [])
     return (
-        <FeedbacksListContext.Provider value={{ feedbacksList , setFeedbacksList }}>
+        <FeedbacksListContext.Provider value={{
+            feedbacksList,
+            setFeedbacksList,
+            selectedTag,
+            setSelectedTag,
+        }}>
             {children}
         </FeedbacksListContext.Provider>
     )
