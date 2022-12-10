@@ -32,6 +32,9 @@ export const StyledFeedback = styled.article`
     display: flex;
     gap: 40px;
     padding: 28px 32px;
+    @container (max-width: 350px){
+      background-color: cadetblue;
+    }
     `
 
 export const StyledFeedbackDetails = styled.div`

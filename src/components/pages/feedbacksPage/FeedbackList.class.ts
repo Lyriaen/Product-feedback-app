@@ -33,7 +33,10 @@ export class FeedbacksList {
 
     public getStatusCount(status){
         return this.feedbacksList.reduce((sum, feedback) => {
-            return feedback.getStatus === status ? ++sum : sum;
+            return feedback.getStatus === status.toLowerCase() ? ++sum : sum;
         },0)
+    }
+    public getStatusFeedbackList(status){
+        return this.feedbacksList.filter(feedback => feedback.getStatus === status.toLowerCase())
     }
 }
