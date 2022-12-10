@@ -14,7 +14,7 @@ export const RoadmapPanel = () => {
     const roadmapOptionsElementsList = []
     for (const option in roadmapOptions) {
         roadmapOptionsElementsList.push(
-            <StyledRoadmapOption key={option} color={`${ roadmapOptions[ option ] }`}>
+            <StyledRoadmapOption key={option} color={`${ roadmapOptions[ option ].color }`}>
                 <NormalText>{ option }</NormalText>
                 <TaskCounter>{feedbacksList.getStatusCount(option.toLowerCase())}</TaskCounter>
             </StyledRoadmapOption>)
