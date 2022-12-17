@@ -10,7 +10,7 @@ export const FeedbacksListProvider = ({children}) => {
     const [feedbacksList, setFeedbacksList] = useState(new FeedbacksList() )
     const [selectedTag, setSelectedTag] = useState('All')
     useEffect(()=> {
-        getFeedbacksList(setFeedbacksList, feedbacksID)
+        getFeedbacksList(setFeedbacksList, selectedTag, feedbacksID)
     }, [])
     return (
         <FeedbacksListContext.Provider value={{

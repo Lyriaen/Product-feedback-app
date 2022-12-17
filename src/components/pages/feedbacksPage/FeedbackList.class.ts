@@ -5,7 +5,6 @@ export class Feedback {
         private title: string,
         private description: string,
         private status: string,
-        private commentsID: string,
         private commentsCount: number,
         private tag: string,
         private upvotes: number,
