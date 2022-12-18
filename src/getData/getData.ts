@@ -13,7 +13,6 @@ interface ProjectOne{
 export const getProjectsList = (setProjectsList: (prev: ProjectsList) => void) => {
     const collectionRef = collection(db, 'projects');
     getDocs(collectionRef).then(querySnapshot => {
-
         const projectsListFromServer = querySnapshot.docs.map(doc => {
             return ({
                 ...doc.data() ,
@@ -28,29 +27,41 @@ export const getProjectsList = (setProjectsList: (prev: ProjectsList) => void) =
 
 }
 
-export const getFeedbacksList = (setFeedbacksList, selectedTag, feedbackID) => {
+export const getFeedbacksList = (setFeedbacksList, selectedTag, projectID) => {
+    const feedbacksRef = collection(db, `projects/${projectID}/feedbacks`);
     if (selectedTag === 'All') {
-        getAllFeedbacks(setFeedbacksList, feedbackID)
+        getAllFeedbacks(setFeedbacksList, feedbacksRef);
         return;
     }
+    getSelectedTagFeedbacks(setFeedbacksList, selectedTag, feedbacksRef);
 }
 
-const getAllFeedbacks = (setFeedbacksList, projectID) => {
-    const feedbacksRef = collection(db, `projects/${projectID}/feedbacks`);
-    getDocs(feedbacksRef).then(querysnapshot => {
-        const newFeedbacksList = new FeedbacksList();
-        querysnapshot.docs.map( feedbackData => {
-            const feedback = feedbackData.data();
-            newFeedbacksList.addNewFeedback( new Feedback(
-                feedback.title ,
-                feedback.description ,
-                feedback.status ,
-                feedback.commentsCount ,
-                feedback.tag ,
-                feedback.upvotes ,
-                feedback.id ,
-            ) )
-        } )
-        setFeedbacksList( newFeedbacksList );
+const getSelectedTagFeedbacks = (setFeedbacksList, selectedTag, feedbacksRef) => {
+    const q = query(feedbacksRef, where('tag', '==', selectedTag));
+    getDocs(q).then(querysnapshot => {
+        saveFeedbackDataFromServerToProvider(querysnapshot, setFeedbacksList);
     })
+}
+
+const getAllFeedbacks = (setFeedbacksList, feedbacksRef) => {
+    getDocs(feedbacksRef).then(querysnapshot => {
+        saveFeedbackDataFromServerToProvider(querysnapshot, setFeedbacksList);
+    })
+}
+
+const saveFeedbackDataFromServerToProvider = (querysnapshot, setFeedbacksList) => {
+    const newFeedbacksList = new FeedbacksList();
+    querysnapshot.docs.map( feedbackData => {
+        const feedback = feedbackData.data();
+        newFeedbacksList.addNewFeedback( new Feedback(
+            feedback.title ,
+            feedback.description ,
+            feedback.status ,
+            feedback.commentsCount ,
+            feedback.tag ,
+            feedback.upvotes ,
+            feedback.id ,
+        ) )
+    } )
+    setFeedbacksList( newFeedbacksList );
 }

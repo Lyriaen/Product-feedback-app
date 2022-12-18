@@ -5,7 +5,6 @@ import { FeedbacksListContext } from "../../../providers/FeedbacksListProvider";
 
 export const FeedbacksContainer = () => {
     const {feedbacksList} = useContext((FeedbacksListContext))
-    console.log(feedbacksList)
     return (
         <>
             {feedbacksList.checkIfEmpty() ?

@@ -11,7 +11,7 @@ export const FeedbacksListProvider = ({children}) => {
     const [selectedTag, setSelectedTag] = useState('All')
     useEffect(()=> {
         getFeedbacksList(setFeedbacksList, selectedTag, feedbacksID)
-    }, [])
+    }, [selectedTag])
     return (
         <FeedbacksListContext.Provider value={{
             feedbacksList,
