@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { BasicContainer } from "../common/common.styled";
+import { Link } from "react-router-dom";
 
 export const StyledInput = styled.input`
   width: 100%;
@@ -44,8 +45,11 @@ export const StyledFormContainer = styled(BasicContainer)`
 
 export const StyledLabel = styled.label`
     p{
-      margin: 2px 0 16px;
+      margin-top: 2px;
       font-size: 1.4rem;
+    }
+    input, textarea{
+      margin-top: 16px;
     }
 `
 
@@ -54,5 +58,11 @@ export const ButtonsContainer = styled.div`
     gap: 16px;
     justify-content: flex-end;
     margin-top: 32px;
-  align-items: flex-end;
+    align-items: flex-end;
+`
+
+export const SignUpLink = styled(Link)`
+    color: ${props => props.theme.colors.mention};
+    font-weight: 800;
+    text-decoration: none;
 `
