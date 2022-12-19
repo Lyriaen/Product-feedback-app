@@ -6,6 +6,7 @@ export const BigHeading = styled.h1`
     line-height: 3.5rem;
     letter-spacing: -0.33px;
     color: ${ props => props.theme.colors.header };
+    text-transform: capitalize;
     `
 
 export const MediumHeading = styled.h2`
@@ -46,8 +47,8 @@ export const SemiBoldText = styled.p`
     `
 
 export const Button = styled.button`
-    min-width: 160px;
-    padding: 11px 0;
+    //min-width: 160px;
+    padding: 12px 24px;
     border: none;
     border-radius: 10px;
     font-size: 1.6rem;
@@ -73,6 +74,12 @@ export const BlueButton = styled(Button)`
       background-color: ${ props => props.theme.colors.replyAndTagText + '95' };
     }
     `
+export const RedButton = styled(Button)`
+    background-color: ${ props => props.theme.colors.deleteBtn };
+    &:hover{
+      background-color: ${ props => props.theme.colors.deleteBtn + '95' };
+    }
+    `
 
 export const BasicContainer = styled.div`
   background-color: ${props => props.theme.colors.primaryBg};
@@ -82,7 +89,8 @@ export const BasicContainer = styled.div`
 
 export const StyledGoBackButton = styled(Link)`
   text-decoration: none;
-  color: inherit;
+  //color: inherit;
+  color: ${props => props.theme.colors.text};
   font-weight: 700;
   font-size: 1.4rem;
   line-height: 2rem;
@@ -100,7 +108,8 @@ export const StyledGoBackButton = styled(Link)`
     background-color: currentColor;
   }
   & svg{
-    stroke: currentColor;
+    //stroke: currentColor;
+    stroke: ${props => props.theme.colors.decorator};
     margin-right: 10px;
   }
   `
