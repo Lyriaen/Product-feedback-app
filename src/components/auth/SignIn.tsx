@@ -25,7 +25,7 @@ export const SignIn = () => {
             <ButtonsContainer>
                 <BlueButton style={{width: '100%'}}>Sign In</BlueButton>
             </ButtonsContainer>
-            <SmallText>Not a member? <SignUpLink to={'./signup'}>Sign Up Now</SignUpLink></SmallText>
+            <SmallText>Not a member? <SignUpLink to={'/signup'}>Sign Up Now</SignUpLink></SmallText>
         </FormContainer>
     )
 }
