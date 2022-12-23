@@ -8,6 +8,7 @@ import { ProjectsListPage } from '../pages/projectListPage/ProjectsListPage';
 import { FeedbacksPage } from "../pages/feedbacksPage/FeedbacksPage";
 import { RoadmapPage } from "../pages/roadmapPage/RoadmapPage";
 import { AddFeedbackForm } from "../forms/AddFeedbackForm";
+import { EditFeedbackForm } from "../forms/EditFeedbackForm";
 
 export const Routing = () => {
     const { isAuth } = useContext(AuthContext) as AuthContextType;
@@ -22,6 +23,7 @@ export const Routing = () => {
                 <Route path='/' element={<ProjectsListPage/>}/>
                 <Route path='/:feedbacksID' element={<FeedbacksPage/>}/>
                 <Route path='/:feedbacksID/addFeedback' element={<AddFeedbackForm/>}/>
+                <Route path='/:feedbacksID/editFeedback' element={<EditFeedbackForm/>}/>
                 <Route path='/:feedbacksID/roadmap' element={<FeedbacksPage/>}/>
             </Routes>
         </main>

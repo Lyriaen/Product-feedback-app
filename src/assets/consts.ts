@@ -1,4 +1,5 @@
 export const tags: string[] = [
+    'All',
     'UI',
     'UX',
     'Enhancement',
